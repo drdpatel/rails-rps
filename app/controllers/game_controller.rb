@@ -1,9 +1,9 @@
 class GameController < ApplicationController
 
   def play_rock
-   @moves = ["rock","paper","scissors"]
+   moves = ["rock","paper","scissors"]
 
-    @comp.move = moves.sample
+    @comp_move = moves.sample
     if @comp_move == "rock"
       @outcome = "tied"
     elsif @comp_move == "paper"
@@ -32,6 +32,7 @@ class GameController < ApplicationController
         @outcome = "won"  
       end
     
+      render({ :template => "paths/scissors" })
     end
 
     def play_paper
@@ -46,6 +47,8 @@ class GameController < ApplicationController
       else @comp_move == "rock"
         @outcome = "won"  
       end
+
+      render({ :template => "paths/paper" })
     end
 
 end
