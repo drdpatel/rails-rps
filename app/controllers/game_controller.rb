@@ -16,7 +16,7 @@ class GameController < ApplicationController
   end
 
     def get_home
+      render({ :template => "paths/home" })
     end
-
-    render({ :template => "paths/home" })
+    
 end
